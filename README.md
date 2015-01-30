@@ -1,4 +1,4 @@
-# pruno-http
+# pruno-stylus
 
 A Stylus mix for pruno that includes font-awesome, normalize.css, nib, jeet, and rupture.
 
