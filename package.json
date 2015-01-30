@@ -1,0 +1,40 @@
+{
+  "name": "pruno-stylus",
+  "version": "1.0.0",
+  "description": "A Stylus mix for pruno that includes font-awesome, normalize.css, nib, jeet, and rupture.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdebotton/pruno-stylus.git"
+  },
+  "keywords": [
+    "pruno",
+    "stylus",
+    "styles",
+    "transpiler",
+    "css",
+    "grid"
+  ],
+  "author": "Christian de Botton <debotton@brooklynunited.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdebotton/pruno-stylus/issues"
+  },
+  "homepage": "https://github.com/cdebotton/pruno-stylus",
+  "dependencies": {
+    "gulp-concat": "^2.4.3",
+    "gulp-if": "^1.2.5",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-minify-css": "^0.4.3",
+    "gulp-plumber": "^0.6.6",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-stylus": "^2.0.0",
+    "jeet": "^6.1.2",
+    "nib": "^1.1.0",
+    "rupture": "^0.6.1",
+    "streamqueue": "^0.1.1"
+  }
+}

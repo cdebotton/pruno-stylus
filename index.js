@@ -34,7 +34,9 @@ StylusTask.prototype.enqueue = function(gulp, params) {
   }
 
   if (params.use && getType(params.use) === 'array') {
-    opts.use = params.use.map(m => require(m)());
+    opts.use = params.use.map(function(m) {
+      return require(m)()
+    });
   }
 
   return compileCSS({
@@ -100,6 +102,21 @@ function getType(obj) {
   return Object.prototype.toString.call(obj)
     .match(/^\[object (.+)\]$/i)[1]
     .toLowerCase();
+}
+
+function distillOptions(Task, params) {
+  var defaults = Object.keys(Task.getDefaults())
+    .concat(['taskName']);
+
+  return Object.keys(params)
+    .filter(function (param) {
+      return defaults.indexOf(param) === -1;
+    })
+    .reduce(function (memo, param) {
+      memo[param] = params[param];
+      delete params[param];
+      return memo;
+    }, {});
 }
 
 module.exports = pruno.extend(StylusTask);
