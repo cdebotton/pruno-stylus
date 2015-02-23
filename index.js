@@ -15,8 +15,10 @@ StylusTask.getDefaults = function() {
     'search': '::src/**/*.styl',
     'minify': false,
     'source-maps':true,
-    'font-awesome': false,
-    'normalize': true,
+    'concat': [
+      './node_modules/normalize.css/normalize.css',
+      './node_modules/font-awesome/css/font-awesome.css'
+    ],
     'use': ['nib', 'jeet', 'rupture']
   };
 };
@@ -68,16 +70,24 @@ function compileCSS(args) {
     )
   );
 
-  if (params.normalize) {
-    stream.queue(
-      gulp.src(pkg('normalize.css', 'normalize.css'))
-    );
-  }
+  if (params.concat) {
+    var type = Object.prototype.toString.call(params.concat)
+      .match(/^\[object (.+)\]$/)[1]
+      .toLowerCase();
 
-  if (params['font-awesome']) {
-    stream.queue(
-      gulp.src(pkg('font-awesome', 'css/font-awesome.css'))
-    );
+    switch (type) {
+      case 'array':
+        params.concat.forEach(function(file) {
+          stream.queue(gulp.src(file));
+        });
+        break;
+      case 'string':
+        stream.queue(gulp.src(params.concat));
+        break;
+      default:
+        throw new Error('Invalid concat.');
+        break;
+    }
   }
 
   stream.queue(
