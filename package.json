@@ -1,6 +1,6 @@
 {
   "name": "pruno-stylus",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A Stylus mix for pruno that includes font-awesome, normalize.css, nib, jeet, and rupture.",
   "main": "index.js",
   "scripts": {
