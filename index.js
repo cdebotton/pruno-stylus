@@ -16,7 +16,7 @@ StylusTask.getDefaults = function() {
     'minify': false,
     'source-maps':true,
     'font-awesome': false,
-    'normalize': false,
+    'normalize': true,
     'use': ['nib', 'jeet', 'rupture']
   };
 };
